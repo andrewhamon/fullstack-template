@@ -1,8 +1,9 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { SessionProvider } from "next-auth/react"
+import { trpc } from 'utils/trpc';
 
-export default function App({
+function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
@@ -12,3 +13,5 @@ export default function App({
     </SessionProvider>
   )
 }
+
+export default trpc.withTRPC(App);
